@@ -1,0 +1,53 @@
+<h1>Overskrift</h1>
+<p><em>Forklaring av demoen her</em></p>
+<form #predictionForm="ngForm" (ngSubmit)="onSubmit(predictionForm.value)">
+
+  <table class='table predictForm' style="width: 0%">
+    <tbody>
+      <tr>
+        <td><label>Suburb:</label></td>
+        <td><input name="Suburb" [(ngModel)]="Suburb" placement="top" ngbTooltip="Eksempler kan være Fossegrenda, Flatåsen, Byneset, eller Krattsia"></td>
+      </tr>
+      <tr>
+        <td><label>Rooms:</label></td>
+        <td><input name="Rooms" [(ngModel)]="Rooms"></td>
+      </tr>
+      <tr>
+        <td><label>Type:</label></td>
+        <td><input name="Type" [(ngModel)]="Type"></td>
+      </tr>
+      <tr>
+        <td><label>Method:</label></td>
+        <td><input name="Method" [(ngModel)]="Method"></td>
+      </tr>
+      <tr>
+        <td><label>Post Code:</label></td>
+        <td><input name="PostCode" [(ngModel)]="PostCode"></td>
+      </tr>
+      <tr>
+        <td><label>Region Name:</label></td>
+        <td><input name="RegionName" [(ngModel)]="RegionName"></td>
+      </tr>
+      <tr>
+        <td><label>Property Count:</label></td>
+        <td><input name="PropertyCount" [(ngModel)]="PropertyCount"></td>
+      </tr>
+      <tr>
+        <td><label>Distance:</label></td>
+        <td><input name="Distance" [(ngModel)]="Distance"></td>
+      </tr>
+      <tr>
+        <td><label>Council Area:</label></td>
+        <td><input name="CouncilArea" [(ngModel)]="CouncilArea"></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <p>
+            <button type="submit" class="btn btn-primary">Predict</button>
+          </p>
+        </td>
+      </tr>
+      </tbody>
+  </table>
+</form>
