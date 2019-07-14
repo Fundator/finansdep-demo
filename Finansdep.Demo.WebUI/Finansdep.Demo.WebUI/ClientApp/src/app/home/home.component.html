@@ -72,7 +72,9 @@
 </form>
 
 <div *ngIf="prediction" style="display: block">
+  <hr />
   <h2>Predicted value: AU$ {{prediction.prediction}}</h2>
+  The individual feature contributions to the final prediction is detailed in the bar char below.
   <canvas baseChart
           [datasets]="barChartData"
           [labels]="barChartLabels"
@@ -80,4 +82,56 @@
           [plugins]="barChartPlugins"
           [legend]="barChartLegend"
           [chartType]="barChartType"></canvas>
+  <hr />
+  <h2>How is the prediction calculated?</h2>
+  <table class="" style="width: 0%">
+    <tr style="border-bottom: 1px solid silver;" placement="top" ngbTooltip="The global mean is the basis for the calculation. All feature contributions are summed with this base value">
+      <td><b>Global mean:</b></td>
+      <td><b>AU$ {{prediction.globalMean}}</b></td>
+    </tr>
+    <tr>
+      <td>Suburb:</td>
+      <td>AU$ {{prediction.suburb}}</td>
+    </tr>
+    <tr>
+      <td>Rooms:</td>
+      <td>AU$ {{prediction.rooms}}</td>
+    </tr>
+    <tr>
+      <td>Type:</td>
+      <td>AU$ {{prediction.type}}</td>
+    </tr>
+    <tr>
+      <td>Method:</td>
+      <td>AU$ {{prediction.method}}</td>
+    </tr>
+    <tr>
+      <td>Post Code:</td>
+      <td>AU$ {{prediction.postcode}}</td>
+    </tr>
+    <tr>
+      <td>Region Name:</td>
+      <td>AU$ {{prediction.regionname}}</td>
+    </tr>
+    <tr>
+      <td>Property Count:</td>
+      <td>AU$ {{prediction.propertycount}}</td>
+    </tr>
+    <tr>
+      <td>Distance:</td>
+      <td>AU$ {{prediction.distance}}</td>
+    </tr>
+    <tr>
+      <td>Council Area:</td>
+      <td>AU$ {{prediction.councilArea}}</td>
+    </tr>
+    <tr style="border-top: 1px solid silver;">
+      <td><b>Sum:</b></td>
+      <td><b>AU$ {{prediction.prediction}}</b></td>
+    </tr>
+
+  </table>
+  <hr />
+  <p></p>
+
 </div>

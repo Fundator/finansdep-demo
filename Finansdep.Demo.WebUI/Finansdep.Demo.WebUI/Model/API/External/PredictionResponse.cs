@@ -27,8 +27,6 @@ namespace Finansdep.Demo.WebUI.Model.API.External
 		public float CouncilArea { get; set; }
 		public float Month { get; set; }
 		public float Year { get; set; }
-
-		[JsonProperty("Global mean")]
 		public float GlobalMean { get; set; }
 	}
 }
