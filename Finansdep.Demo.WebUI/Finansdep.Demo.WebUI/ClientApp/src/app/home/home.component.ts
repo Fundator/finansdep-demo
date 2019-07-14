@@ -32,6 +32,15 @@ export class HomeComponent {
     this.baseUrl = _baseUrl;
   }
 
+  AddOrSubtract(val: number) {
+    if (val < 0) return "detracted";
+    return "added";
+  }
+
+  Abs(val:number) {
+    return Math.abs(val);
+  }
+
   onSubmit(predictionRequest: PredictionRequest) {
     this.http.post(this.baseUrl + 'api/Prediction/PredictHousingValue', predictionRequest)
       .subscribe(result => {
@@ -54,7 +63,7 @@ export class HomeComponent {
             label: 'Feature contribution'
           },
         ];
-        console.log(JSON.stringify(this.prediction));
+        console.log("Reply: " + JSON.stringify(this.prediction));
       }
       );
   }
