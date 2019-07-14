@@ -26,8 +26,8 @@ namespace Finansdep.Demo.WebUI.Controllers
 			var response = client.Post(request);
 
 			// Deserialize response
-			var data = JsonConvert.DeserializeObject<PredictionResponse>(
-				JsonConvert.DeserializeObject<string>(response.Content)); // Temporary fix due to awkward serialization in MLFlow 
+			var data = JsonConvert.DeserializeObject<PredictionResponse>(response.Content);
+//				JsonConvert.DeserializeObject<string>(response.Content)); // Temporary fix due to awkward serialization in MLFlow 
 																		  // (possible double json serialization)
 
 			if (!response.IsSuccessful)
