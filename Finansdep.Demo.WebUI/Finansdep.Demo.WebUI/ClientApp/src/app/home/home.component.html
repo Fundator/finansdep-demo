@@ -1,5 +1,24 @@
-<h1>Overskrift</h1>
-<p><em>Forklaring av demoen her</em></p>
+<h1>Housing Value Prediction Demo</h1>
+<p>
+  <em>
+    This is a demonstration of explainable prediction of housing values using machine learning. The data set used is the <a href="https://www.kaggle.com/anthonypino/melbourne-housing-market" target="_blank">Melbourne Housing Clearance Data (2016)</a> from Kaggle.
+    Some useful resources:
+    <ul>
+      <li>
+        <a href="/swagger" target="_blank">API Documentation</a>
+      </li>
+      <li>
+        <a href="https://github.com/Fundator/finansdep-demo" target="_blank">Web application source code</a>
+      </li>
+      <li>
+        <a href="https://github.com/Fundator/finansdep" target="_blank">MLFlow backend source code</a>
+      </li>
+    </ul>
+  </em></p>
+<p>
+  Use the form below to specify the characteristics of the house you wish to predict a market value for. The prediction as well as its explanation will be shown below the form. 
+
+</p>
 <form #predictionForm="ngForm" (ngSubmit)="onSubmit(predictionForm.value)">
 
   <table class='table predictForm' style="width: 0%">
