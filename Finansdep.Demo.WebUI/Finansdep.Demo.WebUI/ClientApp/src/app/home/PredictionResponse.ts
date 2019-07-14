@@ -11,4 +11,6 @@ export interface PredictionResponse {
     propertyCount: number;
     distance: number;
     councilArea: number;
+    month: number;
+    year: number;
 }

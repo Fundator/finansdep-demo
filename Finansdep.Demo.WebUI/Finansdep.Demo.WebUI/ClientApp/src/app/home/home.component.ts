@@ -48,6 +48,8 @@ export class HomeComponent {
               result.propertycount,
               result.distance,
               result.councilArea,
+              result.month,
+              result.year,
             ],
             label: 'Feature contribution'
           },
@@ -73,7 +75,10 @@ export class HomeComponent {
     'Region Name',
     'Property Count',
     'Distance',
-    'Council Area'];
+    'Council Area',
+    'Month',
+    'Year',
+  ];
   public barChartType: ChartType = 'horizontalBar';
   public barChartLegend = true;
   public barChartPlugins = [];
