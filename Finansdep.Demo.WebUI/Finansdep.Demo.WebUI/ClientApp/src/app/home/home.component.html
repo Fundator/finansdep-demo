@@ -6,39 +6,39 @@
     <tbody>
       <tr>
         <td><label>Suburb:</label></td>
-        <td><input name="Suburb" [(ngModel)]="Suburb" placement="top" ngbTooltip="Eksempler kan være Fossegrenda, Flatåsen, Byneset, eller Krattsia"></td>
+        <td><input name="Suburb" [(ngModel)]="predictionRequest.Suburb" placement="top" ngbTooltip="Eksempler kan være Fossegrenda, Flatåsen, Byneset, eller Krattsia" ></td>
       </tr>
       <tr>
         <td><label>Rooms:</label></td>
-        <td><input name="Rooms" [(ngModel)]="Rooms"></td>
+        <td><input name="Rooms" [(ngModel)]="predictionRequest.Rooms" ></td>
       </tr>
       <tr>
         <td><label>Type:</label></td>
-        <td><input name="Type" [(ngModel)]="Type"></td>
+        <td><input name="Type" [(ngModel)]="predictionRequest.Type" ></td>
       </tr>
       <tr>
         <td><label>Method:</label></td>
-        <td><input name="Method" [(ngModel)]="Method"></td>
+        <td><input name="Method" [(ngModel)]="predictionRequest.Method" ></td>
       </tr>
       <tr>
         <td><label>Post Code:</label></td>
-        <td><input name="PostCode" [(ngModel)]="PostCode"></td>
+        <td><input name="PostCode" [(ngModel)]="predictionRequest.PostCode" ></td>
       </tr>
       <tr>
         <td><label>Region Name:</label></td>
-        <td><input name="RegionName" [(ngModel)]="RegionName"></td>
+        <td><input name="RegionName" [(ngModel)]="predictionRequest.RegionName" ></td>
       </tr>
       <tr>
         <td><label>Property Count:</label></td>
-        <td><input name="PropertyCount" [(ngModel)]="PropertyCount"></td>
+        <td><input name="PropertyCount" [(ngModel)]="predictionRequest.PropertyCount" ></td>
       </tr>
       <tr>
         <td><label>Distance:</label></td>
-        <td><input name="Distance" [(ngModel)]="Distance"></td>
+        <td><input name="Distance" [(ngModel)]="predictionRequest.Distance" ></td>
       </tr>
       <tr>
         <td><label>Council Area:</label></td>
-        <td><input name="CouncilArea" [(ngModel)]="CouncilArea"></td>
+        <td><input name="CouncilArea" [(ngModel)]="predictionRequest.CouncilArea" ></td>
       </tr>
       <tr>
         <td></td>
@@ -48,6 +48,17 @@
           </p>
         </td>
       </tr>
-      </tbody>
+    </tbody>
   </table>
 </form>
+
+<div *ngIf="prediction" style="display: block">
+  <h2>Predicted value: AU$ {{prediction.prediction}}</h2>
+  <canvas baseChart
+          [datasets]="barChartData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [plugins]="barChartPlugins"
+          [legend]="barChartLegend"
+          [chartType]="barChartType"></canvas>
+</div>

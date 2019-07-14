@@ -1,16 +1,14 @@
 export interface PredictionResponse {
-    Prediction: number;
-    Explanation: {
-        MeanPrice: number;
-        Suburb: number;
-        Rooms: number;
-        Type: number;
-        Price: number;
-        Method: number;
-        PostCode: number;
-        RegionName: number;
-        PropertyCount: number;
-        Distance: number;
-        CouncilArea: number;
-    };
+    prediction: number;
+    meanPrice: number;
+    suburb: number;
+    rooms: number;
+    type: number;
+    price: number;
+    method: number;
+    postCode: number;
+    regionName: number;
+    propertyCount: number;
+    distance: number;
+    councilArea: number;
 }
