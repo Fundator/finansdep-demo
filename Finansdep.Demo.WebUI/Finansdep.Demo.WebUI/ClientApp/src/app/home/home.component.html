@@ -107,9 +107,8 @@
   </p>
 </div>
 
-<div id="resultsView"></div>
-<div *ngIf="prediction && !isError" style="display: block">
-  <hr />
+<div *ngIf="prediction && !isError" style="display: block" id="resultsView">
+  <hr *ngIf="scrollToResultsView()" />
   <h2>Predicted value: AU$ {{prediction.prediction}}</h2>
   The individual feature contributions to the final prediction is detailed in the bar char below.
   <canvas baseChart

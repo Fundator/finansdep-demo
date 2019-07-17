@@ -1,4 +1,4 @@
-import { Component, Inject, NgModule, AfterContentInit, AfterViewInit, OnChanges } from '@angular/core';
+import { Component, Inject, NgModule, AfterContentInit, AfterViewInit, OnChanges, Directive, OnInit, Input } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { PredictionResponse } from './PredictionResponse';
@@ -10,7 +10,9 @@ import { Label } from 'ng2-charts';
   selector: 'app-home',
   templateUrl: './home.component.html',
 })
+
 export class HomeComponent  {
+
   private http;
   private baseUrl;
 
@@ -73,11 +75,6 @@ export class HomeComponent  {
         ];
         console.log("Reply: " + JSON.stringify(this.prediction));
 
-        var self = this;
-        setTimeout(function () {
-          var resultsView = document.querySelector("#resultsView");
-          self.scrollToElement(resultsView);
-        }, 250);
 
       },
         error => {
@@ -96,6 +93,10 @@ export class HomeComponent  {
           }
         }
       );
+  }
+
+  scrollToResultsView(): void {
+    this.scrollToElement(document.querySelector("#resultsView"));
   }
 
   scrollToElement($element): void {
