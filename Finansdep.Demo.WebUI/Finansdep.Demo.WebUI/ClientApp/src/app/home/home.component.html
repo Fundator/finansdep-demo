@@ -25,39 +25,66 @@
     <tbody>
       <tr>
         <td><label>Suburb:</label></td>
-        <td><input name="Suburb" [(ngModel)]="predictionRequest.Suburb" placement="top" ngbTooltip="Eksempler kan være Fossegrenda, Flatåsen, Byneset, eller Krattsia" ></td>
+        <td>
+          <!--<input name="Suburb" [(ngModel)]="predictionRequest.Suburb" placement="top" ngbTooltip="Eksempler kan være Fossegrenda, Flatåsen, Byneset, eller Krattsia">-->
+          <select name="Suburb" [(ngModel)]="predictionRequest.Suburb" style="width:100%">
+            <option *ngFor="let j of formData.Suburb" [value]="j">{{ j }}</option>
+          </select>
+        </td>
       </tr>
       <tr>
         <td><label>Rooms:</label></td>
-        <td><input name="Rooms" [(ngModel)]="predictionRequest.Rooms" ></td>
+        <td>
+          <input name="Rooms" [(ngModel)]="predictionRequest.Rooms" style="width:100%" required type="number">
+        </td>
       </tr>
       <tr>
         <td><label>Type:</label></td>
-        <td><input name="Type" [(ngModel)]="predictionRequest.Type" ></td>
+        <td>
+          <select name="Type" [(ngModel)]="predictionRequest.Type" style="width:100%">
+            <option *ngFor="let j of formData.Type" [value]="j">{{ j }}</option>
+          </select>
+        </td>
       </tr>
       <tr>
         <td><label>Method:</label></td>
-        <td><input name="Method" [(ngModel)]="predictionRequest.Method" ></td>
+        <td>
+          <select name="Method" [(ngModel)]="predictionRequest.Method" style="width:100%">
+            <option *ngFor="let j of formData.Method" [value]="j">{{ j }}</option>
+          </select>
+        </td>
       </tr>
       <tr>
         <td><label>Post Code:</label></td>
-        <td><input name="PostCode" [(ngModel)]="predictionRequest.PostCode" ></td>
+        <td>
+          <select name="PostCode" [(ngModel)]="predictionRequest.PostCode" style="width:100%">
+            <option *ngFor="let j of formData.Postcode" [value]="j">{{ j }}</option>
+          </select>
+        </td>
       </tr>
       <tr>
         <td><label>Region Name:</label></td>
-        <td><input name="RegionName" [(ngModel)]="predictionRequest.RegionName" ></td>
+        <td>
+          <select name="RegionName" [(ngModel)]="predictionRequest.RegionName" style="width:100%">
+            <option *ngFor="let j of formData.Regionname" [value]="j">{{ j }}</option>
+          </select>
+        </td>
       </tr>
       <tr>
         <td><label>Property Count:</label></td>
-        <td><input name="PropertyCount" [(ngModel)]="predictionRequest.PropertyCount" ></td>
+        <td><input name="PropertyCount" [(ngModel)]="predictionRequest.PropertyCount" style="width:100%" required type="number"></td>
       </tr>
       <tr>
         <td><label>Distance:</label></td>
-        <td><input name="Distance" [(ngModel)]="predictionRequest.Distance" ></td>
+        <td><input name="Distance" [(ngModel)]="predictionRequest.Distance" style="width:100%" required type="number"></td>
       </tr>
       <tr>
         <td><label>Council Area:</label></td>
-        <td><input name="CouncilArea" [(ngModel)]="predictionRequest.CouncilArea" ></td>
+        <td>
+          <select name="CouncilArea" [(ngModel)]="predictionRequest.CouncilArea" style="width:100%">
+            <option *ngFor="let j of formData.CouncilArea" [value]="j">{{ j }}</option>
+          </select>
+        </td>
       </tr>
       <tr>
         <td></td>
@@ -71,7 +98,17 @@
   </table>
 </form>
 
-<div *ngIf="prediction" style="display: block">
+<div *ngIf="isError" style="display: block; color:red; font-weight:bold; align-content:center">
+  <p>
+    <img src="/images/ouch.png" />
+  </p>
+  <p>
+    {{errorMessage}}
+  </p>
+</div>
+
+<div id="resultsView"></div>
+<div *ngIf="prediction && !isError" style="display: block">
   <hr />
   <h2>Predicted value: AU$ {{prediction.prediction}}</h2>
   The individual feature contributions to the final prediction is detailed in the bar char below.
