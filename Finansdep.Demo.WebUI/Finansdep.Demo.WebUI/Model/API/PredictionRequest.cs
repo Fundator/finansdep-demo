@@ -22,19 +22,24 @@
 	SOFTWARE.
  */
 
-using Newtonsoft.Json.Converters;
+using Finansdep.Demo.WebUI.Model.API.External;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Finansdep.Demo.WebUI.Util.Serialization.Converters
+namespace Finansdep.Demo.WebUI.Model.API
 {
-	public class DateFormatConverter : IsoDateTimeConverter
+	public class PredictionRequest
 	{
-		public DateFormatConverter(string format)
-		{
-			DateTimeFormat = format;
-		}
+		public string Suburb { get; set; }
+		public int Rooms { get; set; }
+		public string Type { get; set; }
+		public string Method { get; set; }
+		public int Postcode { get; set; }
+		public string Regionname { get; set; }
+		public int Propertycount { get; set; }
+		public float Distance { get; set; }
+		public string CouncilArea { get; set; }
 	}
 }

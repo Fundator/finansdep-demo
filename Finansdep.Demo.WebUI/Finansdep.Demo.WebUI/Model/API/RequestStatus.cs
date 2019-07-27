@@ -22,19 +22,18 @@
 	SOFTWARE.
  */
 
+using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Finansdep.Demo.WebUI.Util.Serialization.Converters
+namespace Finansdep.Demo.WebUI.Model.API
 {
-	public class DateFormatConverter : IsoDateTimeConverter
+
+	public enum RequestStatus
 	{
-		public DateFormatConverter(string format)
-		{
-			DateTimeFormat = format;
-		}
+		Ok, Error
 	}
 }

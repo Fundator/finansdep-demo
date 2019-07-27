@@ -22,19 +22,19 @@
 	SOFTWARE.
  */
 
-using Newtonsoft.Json.Converters;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Finansdep.Demo.WebUI.Util.Serialization.Converters
+namespace Finansdep.Demo.WebUI.Model.API.External
 {
-	public class DateFormatConverter : IsoDateTimeConverter
+
+	public class MlFlowPredictionResponse
 	{
-		public DateFormatConverter(string format)
-		{
-			DateTimeFormat = format;
-		}
+		public List<float> Predictions = new List<float>();
+
+		public List<MlFlowPredictionExplanation> Explanations = new List<MlFlowPredictionExplanation>();
 	}
 }

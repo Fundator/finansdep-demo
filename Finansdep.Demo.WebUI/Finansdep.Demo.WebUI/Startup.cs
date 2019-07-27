@@ -23,7 +23,6 @@ namespace Finansdep.Demo.WebUI
 		public void ConfigureServices(IServiceCollection services)
 		{
 			services.AddMvc();
-			//	.AddNewtonsoftJson();
 
 			// In production, the Angular files will be served from this directory
 			services.AddSpaStaticFiles(configuration =>
@@ -55,7 +54,6 @@ namespace Finansdep.Demo.WebUI
 			app.UseSwaggerUI(c =>
 			{
 				c.SwaggerEndpoint("/swagger/v1/swagger.json", "Prediction API V1");
-				//c.RoutePrefix = "swagger";
 			});
 
 			app.UseHttpsRedirection();

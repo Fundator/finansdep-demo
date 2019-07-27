@@ -20,21 +20,26 @@
 	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 	SOFTWARE.
- */
+*/
 
-using Newtonsoft.Json.Converters;
+using Finansdep.Demo.WebUI.Util.Serialization.Converters;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Finansdep.Demo.WebUI.Util.Serialization.Converters
+namespace Finansdep.Demo.WebUI.Model.API.External
 {
-	public class DateFormatConverter : IsoDateTimeConverter
+	public class MlFlowPredictionRequest
 	{
-		public DateFormatConverter(string format)
+		[JsonProperty("columns")]
+		readonly List<string> Columns = new List<string>()
 		{
-			DateTimeFormat = format;
-		}
+			"Suburb", "Rooms", "Type", "Method", "Postcode", "Regionname", "Propertycount", "Distance", "CouncilArea", "Date"
+		};
+
+		[JsonProperty("data")]
+		public List<List<object>> Data = new List<List<object>>();
 	}
 }
