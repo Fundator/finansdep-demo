@@ -108,8 +108,8 @@
 </div>
 
 <div *ngIf="prediction && !isError" style="display: block" id="resultsView">
-  <hr *ngIf="scrollToResultsView()" />
-  <h2>Predicted value: AU$ {{prediction.prediction}}</h2>
+  <hr  />
+  <h2>Predicted value: {{prediction.prediction | currency:'AUD':'\$':'1.0-0'}} AUD</h2>
   The individual feature contributions to the final prediction is detailed in the bar char below.
   <canvas baseChart
           [datasets]="barChartData"
@@ -120,64 +120,64 @@
           [chartType]="barChartType"></canvas>
   <hr />
   <h2>How is the prediction calculated?</h2>
-  <table class="" style="width: 0%">
+  <table class="" style="width: 0%; text-align:right;">
     <tr style="border-bottom: 1px solid silver;" placement="top" ngbTooltip="The global mean is the basis for the calculation. All feature contributions are summed with this base value">
       <td><b>Global mean:</b></td>
-      <td><b>AU$ {{prediction.globalMean}}</b></td>
+      <td><b>{{prediction.globalMean | currency:'AUD':'\$':'1.0-0'}}</b></td>
     </tr>
-    <tr placement="right" ngbTooltip="The given suburb {{AddOrSubtract(prediction.suburb)}} AU$ {{Abs(prediction.suburb)}} ">
+    <tr placement="right" ngbTooltip="The given suburb {{AddOrSubtract(prediction.suburb)}} {{Abs(prediction.suburb) | currency:'AUD':'\$':'1.0-0'}} ">
       <td>Suburb:</td>
-      <td>AU$ {{prediction.suburb}}</td>
+      <td >{{prediction.suburb | currency:'AUD':'\$':'1.0-0'}}</td>
     </tr>
-    <tr placement="right" ngbTooltip="The given number of rooms {{AddOrSubtract(prediction.rooms)}} AU$ {{Abs(prediction.rooms)}} ">
+    <tr placement="right" ngbTooltip="The given number of rooms {{AddOrSubtract(prediction.rooms)}} {{Abs(prediction.rooms) | currency:'AUD':'\$':'1.0-0'}} ">
       <td>Rooms:</td>
-      <td>AU$ {{prediction.rooms}}</td>
+      <td>{{prediction.rooms | currency:'AUD':'\$':'1.0-0'}}</td>
     </tr>
-    <tr placement="right" ngbTooltip="The given house type {{AddOrSubtract(prediction.type)}} AU$ {{Abs(prediction.type)}} ">
+    <tr placement="right" ngbTooltip="The given house type {{AddOrSubtract(prediction.type)}} {{Abs(prediction.type) | currency:'AUD':'\$':'1.0-0'}} ">
       <td>Type:</td>
-      <td>AU$ {{prediction.type}}</td>
+      <td>{{prediction.type | currency:'AUD':'\$':'1.0-0'}}</td>
     </tr>
-    <tr placement="right" ngbTooltip="The given method of sale {{AddOrSubtract(prediction.method)}} AU$ {{Abs(prediction.method)}} ">
+    <tr placement="right" ngbTooltip="The given method of sale {{AddOrSubtract(prediction.method)}} {{Abs(prediction.method) | currency:'AUD':'\$':'1.0-0'}} ">
       <td>Method:</td>
-      <td>AU$ {{prediction.method}}</td>
+      <td>{{prediction.method | currency:'AUD':'\$':'1.0-0'}}</td>
     </tr>
-    <tr placement="right" ngbTooltip="The given postcode {{AddOrSubtract(prediction.postcode)}} AU$ {{Abs(prediction.postcode)}} ">
+    <tr placement="right" ngbTooltip="The given postcode {{AddOrSubtract(prediction.postcode)}} {{Abs(prediction.postcode) | currency:'AUD':'\$':'1.0-0'}} ">
       <td>Post Code:</td>
-      <td>AU$ {{prediction.postcode}}</td>
+      <td>{{prediction.postcode | currency:'AUD':'\$':'1.0-0'}}</td>
     </tr>
-    <tr placement="right" ngbTooltip="The given region name {{AddOrSubtract(prediction.regionname)}} AU$ {{Abs(prediction.regionname)}} ">
+    <tr placement="right" ngbTooltip="The given region name {{AddOrSubtract(prediction.regionname)}} {{Abs(prediction.regionname) | currency:'AUD':'\$':'1.0-0'}} ">
       <td>Region Name:</td>
-      <td>AU$ {{prediction.regionname}}</td>
+      <td>{{prediction.regionname | currency:'AUD':'\$':'1.0-0'}}</td>
     </tr>
-    <tr placement="right" ngbTooltip="The given number of properties in the suburb {{AddOrSubtract(prediction.propertycount)}} AU$ {{Abs(prediction.propertycount)}} ">
+    <tr placement="right" ngbTooltip="The given number of properties in the suburb {{AddOrSubtract(prediction.propertycount)}} {{Abs(prediction.propertycount) | currency:'AUD':'\$':'1.0-0'}} ">
       <td>Property Count:</td>
-      <td>AU$ {{prediction.propertycount}}</td>
+      <td>{{prediction.propertycount | currency:'AUD':'\$':'1.0-0'}}</td>
     </tr>
-    <tr placement="right" ngbTooltip="The given distance from CBD (central business district) {{AddOrSubtract(prediction.distance)}} AU$ {{Abs(prediction.distance)}} ">
+    <tr placement="right" ngbTooltip="The given distance from CBD (central business district) {{AddOrSubtract(prediction.distance)}} {{Abs(prediction.distance) | currency:'AUD':'\$':'1.0-0'}} ">
       <td>Distance:</td>
-      <td>AU$ {{prediction.distance}}</td>
+      <td>{{prediction.distance | currency:'AUD':'\$':'1.0-0'}}</td>
     </tr>
-    <tr placement="right" ngbTooltip="The given council area {{AddOrSubtract(prediction.councilArea)}} AU$ {{Abs(prediction.councilArea)}}">
+    <tr placement="right" ngbTooltip="The given council area {{AddOrSubtract(prediction.councilArea)}} {{Abs(prediction.councilArea) | currency:'AUD':'\$':'1.0-0'}}">
       <td>Council Area:</td>
-      <td>AU$ {{prediction.councilArea}}</td>
+      <td>{{prediction.councilArea | currency:'AUD':'\$':'1.0-0'}}</td>
     </tr>
 
-    <tr placement="right" ngbTooltip="The given month {{AddOrSubtract(prediction.month)}} AU$ {{Abs(prediction.month)}}">
+    <tr placement="right" ngbTooltip="The given month {{AddOrSubtract(prediction.month)}} {{Abs(prediction.month) | currency:'AUD':'\$':'1.0-0'}}">
       <td>Month:</td>
-      <td>AU$ {{prediction.month}}</td>
+      <td>{{prediction.month | currency:'AUD':'\$':'1.0-0'}}</td>
     </tr>
-    <tr placement="right" ngbTooltip="The given year {{AddOrSubtract(prediction.year)}} AU$ {{Abs(prediction.year)}}">
+    <tr placement="right" ngbTooltip="The given year {{AddOrSubtract(prediction.year)}}  {{Abs(prediction.year) | currency:'AUD':'\$':'1.0-0'}}">
       <td>Year:</td>
-      <td>AU$ {{prediction.year}}</td>
+      <td>{{prediction.year | currency:'AUD':'\$':'1.0-0'}}</td>
     </tr>
 
-    <tr style="border-top: 1px solid silver;" placement="right" ngbTooltip="The sum of all the contributions above amounts to a predicted house value of AU$ {{prediction.prediction}}">
+    <tr style="border-top: 1px solid silver;" placement="right" ngbTooltip="The sum of all the contributions above amounts to a predicted house value of {{prediction.prediction | currency:'AUD':'\$':'1.0-0'}}">
       <td><b>Sum:</b></td>
-      <td><b>AU$ {{prediction.prediction}}</b></td>
+      <td><b>{{prediction.prediction | currency:'AUD':'\$':'1.0-0'}}</b></td>
     </tr>
 
   </table>
-  <hr />
+  <hr *ngIf="scrollToResultsView()" />
   <p></p>
 
 </div>

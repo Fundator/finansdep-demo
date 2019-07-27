@@ -15,6 +15,7 @@ export class HomeComponent  {
 
   private http;
   private baseUrl;
+  private scrollState: boolean;
 
   public prediction: PredictionResponse;
   public predictionRequest: PredictionRequest = {
@@ -32,6 +33,7 @@ export class HomeComponent  {
   constructor(_http: HttpClient, @Inject('BASE_URL') _baseUrl: string) {
     this.http = _http;
     this.baseUrl = _baseUrl;
+    this.scrollState = false;
   }
 
   AddOrSubtract(val: number) {
@@ -54,6 +56,10 @@ export class HomeComponent  {
           this.errorMessage = null;
           this.isError = false;
         }
+
+        // Update scroll state to allow autoscroll
+        this.scrollState = true;
+
         this.prediction = result;
         this.barChartData = [
           {
@@ -96,7 +102,12 @@ export class HomeComponent  {
   }
 
   scrollToResultsView(): void {
-    this.scrollToElement(document.querySelector("#resultsView"));
+    if (this.scrollState) {
+      setTimeout(() => {
+        this.scrollToElement(document.querySelector("#resultsView"));
+      }, 250);
+      this.scrollState = false;
+    }
   }
 
   scrollToElement($element): void {
