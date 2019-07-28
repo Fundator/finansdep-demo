@@ -1,6 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
+.predictForm {
+  min-width: 420px;
+  text-wrap: none;
+}
+
 .predictForm td {
-  text-align: right
+  text-align: right;
+}
+
+.explainForm {
+  min-width: 320px;
+  text-wrap: none;
 }

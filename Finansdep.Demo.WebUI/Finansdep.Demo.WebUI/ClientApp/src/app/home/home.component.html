@@ -21,7 +21,7 @@
 </p>
 <form #predictionForm="ngForm" (ngSubmit)="onSubmit(predictionForm.value)">
 
-  <table class='table predictForm' style="width: 0%">
+  <table class='table predictForm' style="width: 0%; text-wrap:none">
     <tbody>
       <tr>
         <td><label>Suburb:</label></td>
@@ -120,7 +120,7 @@
           [chartType]="barChartType"></canvas>
   <hr />
   <h2>How is the prediction calculated?</h2>
-  <table class="" style="width: 0%; text-align:right;">
+  <table class="explainForm" style="width: 0%; text-align:right;">
     <tr style="border-bottom: 1px solid silver;" placement="top" ngbTooltip="The global mean is the basis for the calculation. All feature contributions are summed with this base value">
       <td><b>Global mean:</b></td>
       <td><b>{{prediction.globalMean | currency:'AUD':'\$':'1.0-0'}}</b></td>
