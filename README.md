@@ -10,7 +10,7 @@ Modellen er trent og rullet ut som en _container instance_ i Azure. Fra denne co
 # Kjøring av applikasjonen lokalt
 For å kjøre applikasjonen må man installere Visual Studio 2019 Community Edition, .NET Core SDK 2.2, og NodeJS. Ved første bygging/kjøring vil det gjennomføres en førstegangsinstallasjon av pakkene i ClientApp\packages.json, og dette kan ta noe tid. Applikasjonen vil fortsatt benytte prediksjons-API'et fra containeren som kjører i Azure.
 
-# Useful resources
+# Nyttige linker
 - Link til demoapplikasjon: https://finansdep-demo.azurewebsites.net/
 - API-dokumentasjon: https://finansdep-demo.azurewebsites.net/swagger
 - Kildekode Web Frontend/Backend (dette repoet): https://github.com/Fundator/finansdep-demo
