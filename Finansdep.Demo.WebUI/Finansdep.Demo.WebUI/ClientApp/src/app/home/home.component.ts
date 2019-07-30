@@ -58,11 +58,12 @@ export class HomeComponent  {
     this.http = _http;
     this.baseUrl = _baseUrl;
     this.scrollState = false;
+    console.log("  ______  _                                _                 _____                          \r\n |  ____|(_)                              | |               |  __ \\                         \r\n | |__    _  _ __    __ _  _ __   ___   __| |  ___  _ __    | |  | |  ___  _ __ ___    ___  \r\n |  __|  | || \'_ \\  \/ _` || \'_ \\ \/ __| \/ _` | \/ _ \\| \'_ \\   | |  | | \/ _ \\| \'_ ` _ \\  \/ _ \\ \r\n | |     | || | | || (_| || | | |\\__ \\| (_| ||  __\/| |_) |_ | |__| ||  __\/| | | | | || (_) |\r\n |_|     |_||_| |_| \\__,_||_| |_||___\/ \\__,_| \\___|| .__\/(_)|_____\/  \\___||_| |_| |_| \\___\/ \r\n                                                   | |                                      \r\n                                                   |_|                                      \r\n https://www.nois.no/produkter/IT-tjenester/maskinlaring-og-kunstig-intelligens/")
   }
 
   AddOrSubtract(val: number) {
-    if (val < 0) return "detracted";
-    return "added";
+    if (val < 0) return "reduserte verdien med";
+    return "økte verdien med";
   }
 
   Abs(val:number) {
@@ -70,6 +71,7 @@ export class HomeComponent  {
   }
 
   onSubmit(predictionRequest: PredictionRequest) {
+    console.log("Request: " + JSON.stringify(predictionRequest));
     this.http.post(this.baseUrl + 'api/Prediction/PredictHousingValue', predictionRequest)
       .subscribe(result => {
         if (result.status != "Ok") {
@@ -100,12 +102,10 @@ export class HomeComponent  {
               result.month,
               result.year,
             ],
-            label: 'Feature contribution'
+            label: 'Variabelbidrag'
           },
         ];
-        console.log("Reply: " + JSON.stringify(this.prediction));
-
-
+        console.log("Response: " + JSON.stringify(this.prediction));
       },
         error => {
           this.prediction = null;
@@ -116,7 +116,7 @@ export class HomeComponent  {
             this.errorMessage = error.error.message;
             console.error('An error occurred:', error.error.message);
           } else {
-            this.errorMessage = "There seems to be a problem. The response from the server was " + error.status + ", which is not a good sign. Please look over the input fields and correct any possible errors.";
+            this.errorMessage = "Vi har støtt på et problem. Svaret fra tjeneren var " + error.status + ", og det er ikke et godt tegn. Ta en titt på verdiene du har skrevet inn i skjemaet og se om du kan gjøre noen korrigeringer.";
             console.error(
               `Backend returned code ${error.status}, ` +
               `body was: ${error.error}`);
@@ -143,7 +143,7 @@ export class HomeComponent  {
   public isError: Boolean;
 
   public barChartData: ChartDataSets[] = [
-    { data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], label: 'Feature contribution' },
+    { data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0], label: 'Variabelbidrag' },
   ];
 
   public barChartOptions: ChartOptions = {
