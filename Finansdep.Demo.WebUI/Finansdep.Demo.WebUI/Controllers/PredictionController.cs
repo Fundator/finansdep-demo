@@ -82,7 +82,7 @@ namespace Finansdep.Demo.WebUI.Controllers
 
 		private static RestClient GetClient()
 		{
-			return new RestClient("http://5364e0bd-1a4e-4579-98de-4bd9b11ca807.westus.azurecontainer.io");
+			return new RestClient("http://0281c259-623d-4d10-84bb-054a4a352f95.northeurope.azurecontainer.io");
 		}
 	}
 }

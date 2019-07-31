@@ -44,7 +44,7 @@ export class HomeComponent  {
   public prediction: PredictionResponse;
   public predictionRequest: PredictionRequest = {
     Suburb: "Essendon",
-    Rooms: 2,
+    Rooms: 4,
     Type: "u",
     Method: "SP",
     PostCode: 3040,
